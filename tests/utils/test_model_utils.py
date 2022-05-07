@@ -12,7 +12,6 @@ from yolox.exp import get_exp
 
 
 class TestModelUtils(unittest.TestCase):
-
     def setUp(self):
         self.model: nn.Module = get_exp(exp_name="yolox-s").get_model()
 
@@ -33,7 +32,7 @@ class TestModelUtils(unittest.TestCase):
             self.assertTrue(len(model_state) == len(prev_state))
             self.assertEqual(
                 result,
-                all([torch.allclose(v, model_state[k]) for k, v in prev_state.items()])
+                all([torch.allclose(v, model_state[k]) for k, v in prev_state.items()]),
             )
 
         # test recurrsive context case

@@ -20,7 +20,7 @@ from yolox.utils import (
     fuse_model,
     get_local_rank,
     get_model_info,
-    setup_logger
+    setup_logger,
 )
 
 
@@ -149,7 +149,9 @@ def main(exp, args, num_gpu):
     logger.info("Model Summary: {}".format(get_model_info(model, exp.test_size)))
     logger.info("Model Structure:\n{}".format(str(model)))
 
-    evaluator = exp.get_evaluator(args.batch_size, is_distributed, args.test, args.legacy)
+    evaluator = exp.get_evaluator(
+        args.batch_size, is_distributed, args.test, args.legacy
+    )
     evaluator.per_class_AP = True
     evaluator.per_class_AR = True
 

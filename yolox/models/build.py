@@ -48,7 +48,9 @@ def create_yolox_model(
         device = "cuda:0" if torch.cuda.is_available() else "cpu"
     device = torch.device(device)
 
-    assert name in _CKPT_FULL_PATH, f"user should use one of value in {_CKPT_FULL_PATH.keys()}"
+    assert (
+        name in _CKPT_FULL_PATH
+    ), f"user should use one of value in {_CKPT_FULL_PATH.keys()}"
     exp: Exp = get_exp(exp_name=name)
     exp.num_classes = num_classes
     yolox_model = exp.get_model()
