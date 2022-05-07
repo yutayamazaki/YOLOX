@@ -112,9 +112,6 @@ def main():
     net.input_info[input_blob].precision = "FP32"
     net.outputs[out_blob].precision = "FP16"
 
-    # Get a number of classes recognized by a model
-    num_of_classes = max(net.outputs[out_blob].shape)
-
     # ---------------------------Step 4. Loading model to the device-------------------------------------------------------
     log.info("Loading the model to the plugin")
     exec_net = ie.load_network(network=net, device_name=args.device)

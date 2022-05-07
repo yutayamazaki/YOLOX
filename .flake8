@@ -1,5 +1,5 @@
 [flake8]
 max-line-length = 88
 max-complexity = 10
-per-file-ignores = 
+per-file-ignores = tools/eval.py:C901, tools/demo.py:C901, yolox/models/yolo_head.py:C901, yolox/evaluators/voc_eval.py:C901, yolox/data/dataloading.py:C901
 ignore = E203, E266, E501, W503, F403, F401
